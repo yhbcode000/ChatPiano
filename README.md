@@ -80,5 +80,8 @@ This project is licensed under Apache License 2.0 - see the [LICENSE](LICENSE.md
 
 ## 🙏 Acknowledgments
 
-- Thanks to all the contributors who have invested their time in enhancing the Chat Piano project.
-- Special thanks to the developers and community supporting the open-source tools and libraries we use.
+- This project is developed under the guidance and support of [Music X Lab](http://www.musicxlab.com/). 
+- Special thanks to the contributors from the [Music X Lab GitHub organization](https://github.com/music-x-lab) for their invaluable support and resources.
+- Thanks to all the developers, musicians, and community members who have contributed their time and effort to enhance the Chat Piano project.
+- Additional thanks to the developers and communities supporting the open-source tools and libraries utilized in this project.
+
