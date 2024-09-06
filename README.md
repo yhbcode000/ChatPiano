@@ -13,11 +13,11 @@ Chat Piano leverages advanced AI models to interpret voice commands and convert 
 
 ## 🛠️ Technical Stack
 
-- **📦 Microservices:** Includes services such as:
-  - **📚 knowledge-database-management-service:** Manages AI knowledge in a way that allows for human control and sophisticated data management.
-  - **🎵 musecoco-text2midi-service:** Refactors MuseCoco into a deployable service module, ensuring adaptability and detailed implementation abstraction.
-  - **💬 llm-text2text-service:** Integrates third-party open-source LLM services for modular deployment and API interaction from leading models.
-  - **🤖 multi-modal-ai-bot-template:** Provides a template for multimodal AI interactions, integrating various AI workflows.
+- **📦 Microservices:** Includes services:
+  - **📚 [knowledge-database-management-service](https://github.com/yhbcode000/knowledge-database-management-service):** Manages AI knowledge in a way that allows for human control and sophisticated data management.
+  - **🎵 [musecoco-text2midi-service](https://github.com/yhbcode000/musecoco-text2midi-service):** Refactors MuseCoco into a deployable service module, ensuring adaptability and detailed implementation abstraction.
+  - **💬 [llm-text2text-service](https://github.com/yhbcode000/llm-text2text-service):** Integrates third-party open-source LLM services for modular deployment and API interaction from leading models.
+  - **🤖 [multi-modal-ai-bot-template](https://github.com/yhbcode000/multi-modal-ai-bot-template):** Provides a template for multimodal AI interactions, integrating various AI workflows.
 - **🐳 Docker & Kubernetes:** For containerization and orchestration to manage and scale the application seamlessly.
 - **🔧 GitHub:** Used for version control and hosting the project repository.
 
@@ -27,10 +27,22 @@ To set up the Chat Piano project on your local machine, follow these steps:
 
 ```bash
 # Clone the repository recursively to include all submodules
-git clone --recursive https://github.com/yhbcode000/chat-piano.git
+git clone --recursive git@github.com:yhbcode000/ChatPiano.git
+```
 
+> Use python. Suggest try on Linux system.
+
+```python
+cd ChatPiano
+
+python setup.py install
+```
+
+> Use docker build.
+
+```bash
 # Navigate to the project directory
-cd chat-piano
+cd ChatPiano
 
 # Build the Docker container
 docker build -t chat-piano .
