@@ -76,7 +76,7 @@ We encourage contributions from the community. Whether you are a developer, musi
 
 ## 📜 License
 
-This project is licensed under Apache License 2.0 - see the [LICENSE](LICENSE.md) file for more details.
+This project is licensed under Apache License 2.0 - see the [LICENSE](LICENSE) file for more details.
 
 ## 🙏 Acknowledgments
 

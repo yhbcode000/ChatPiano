@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='ChatPiano',  # Replace with your project name
+    name='chat_piano',  # Replace with your project name
     version='0.1.0',  # The current project version
     author='Music X Lab',  # Replace with your organization or team name
     author_email='your-email@example.com',  # Replace with your contact email
