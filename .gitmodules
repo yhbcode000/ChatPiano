@@ -1,9 +1,9 @@
-[submodule "knowledge-database-management-service"]
+[submodule "modules/knowledge-database-management-service"]
 	path = modules/knowledge-database-management-service
 	url = git@github.com:yhbcode000/knowledge-database-management-service.git
-[submodule "musecoco-text2midi-service"]
+[submodule "modules/musecoco-text2midi-service"]
 	path = modules/musecoco-text2midi-service
 	url = git@github.com:yhbcode000/musecoco-text2midi-service.git
-[submodule "llm-text2text-service"]
+[submodule "modules/llm-text2text-service"]
 	path = modules/llm-text2text-service
 	url = git@github.com:yhbcode000/llm-text2text-service.git
