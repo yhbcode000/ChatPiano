@@ -44,6 +44,9 @@ python setup.py install
 # Navigate to the project directory
 cd ChatPiano
 
+# For now
+python main.py
+
 # Build the Docker container
 docker build -t chat-piano .
 
@@ -85,3 +88,6 @@ This project is licensed under Apache License 2.0 - see the [LICENSE](LICENSE) f
 - Thanks to all the developers, musicians, and community members who have contributed their time and effort to enhance the Chat Piano project.
 - Additional thanks to the developers and communities supporting the open-source tools and libraries utilized in this project.
 
+## Helpful Link
+
+- https://www.onlineconverter.com/midi-to-mp3
