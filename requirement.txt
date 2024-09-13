@@ -1,0 +1,4 @@
+openai
+midi2audio
+requests
+fluidsynth
