@@ -185,7 +185,9 @@ def transcribe_audio(audio_file_path):
     audio_file = open(audio_file_path, "rb")
     transcript = openai.audio.transcriptions.create(
         file=audio_file, 
-        model="whisper-1"
+        model="whisper-1",
+        language="en",
+        prompt="english back with prompt like expansion"
         )
     return transcript.text
 
@@ -324,13 +326,6 @@ def main():
     tools=[],
     model="gpt-4o",
     )
-    
-    assistant_chatter = text2text_client.beta.assistants.create(
-    name="Chatty",
-    instructions="You are chatty, keep people around while waiting the music generation service is done.",
-    tools=[],
-    model="gpt-4o",
-    )
 
     text2text_thread = text2text_client.beta.threads.create()
 
@@ -358,14 +353,14 @@ def main():
 
             # Step 2: Send the query to the assistant
             message = text2text_client.beta.threads.messages.create(
-            thread_id=text2text_thread.id,
-            role="user",
-            content=f"{input_query}[return the instruction only, do not contain any further instruction about the way it plays]"
+                thread_id=text2text_thread.id,
+                role="user",
+                content=f"{input_query}[return the instruction only, do not contain any further instruction about the way it plays, only generate 10 seconds.]"
             )
 
             run = text2text_client.beta.threads.runs.create_and_poll(
-            thread_id=text2text_thread.id,
-            assistant_id=assistant_text_command.id
+                thread_id=text2text_thread.id,
+                assistant_id=assistant_text_command.id
             )
             
             if run.status == 'completed': 
@@ -398,6 +393,13 @@ def main():
             current_image_path = get_image_path_from_text("neutral")
             image_update_event.set()
             
+            assistant_chatter = text2text_client.beta.assistants.create(
+            name="Chatty",
+            instructions=f"You are chatty, keep people around while waiting the music generation service is done. [What you are? A agent that can generate music. previous music query {input_query}, command: {text_command}, you are currently wait the result generated music return back with the user, chat for fun] [simple chat, answer me in short reply do not follow markdown format, only short reply is enough, free speech]",
+            tools=[],
+            model="gpt-4o",
+            )
+            
             while not job_complete.is_set():
                 # Record user's response
                 audio_file = record_audio()
@@ -409,7 +411,7 @@ def main():
                 message = text2text_client.beta.threads.messages.create(
                 thread_id=text2text_thread.id,
                 role="user",
-                content=f"[previous music query: {text_command}, you are currently wait the result generated music return back with the user, chat for fun] User: {input_query} [simple chat, answer me in short reply do not follow markdown format, only short reply is enough, free speech]"
+                content=f"User: {input_query}"
                 )
 
                 run = text2text_client.beta.threads.runs.create_and_poll(
