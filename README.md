@@ -1,4 +1,6 @@
-# 🎹 Chat Piano
+# 🎹 Chat Piano V1
+
+> check Chat Piano V2 here: https://github.com/yhbcode000/ChatPianoV2
 
 Chat Piano leverages advanced AI models to interpret voice commands and convert them into MIDI files, facilitating a seamless interaction between users and digital music creation. This project integrates various microservices to manage data, improve functionality, and streamline the user experience.
 
