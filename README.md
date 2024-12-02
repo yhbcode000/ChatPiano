@@ -1,13 +1,12 @@
-# 🎹 Chat Piano V1
-
-> Due to some requirement change, we move to next version of Chat Piano project, check our latest ChatPianoV2 here: https://github.com/yhbcode000/ChatPianoV2.
+# 🎹 Chat Piano
 
 Chat Piano leverages advanced AI models to interpret voice commands and convert them into MIDI files, facilitating a seamless interaction between users and digital music creation. This project integrates various microservices to manage data, improve functionality, and streamline the user experience.
 
 ## 🌟 Features
 
 - **🎶 Voice to MIDI Conversion:** Converts voice commands directly into MIDI files using state-of-the-art AI models.
-- **🏗️ Modular Architecture:** Utilizes a series of microservices for scalable and maintainable codebase.
+- **⚙️ Tools Support and Configuration:** A modular system that integrates various tools to enhance functionality.
+- ~~**🏗️ Modular Architecture:** Utilizes a series of microservices for scalable and maintainable codebase.~~
 - **🛠️ Customizable Workflows:** Users can define and customize their music creation workflows.
 - **🔄 Continuous Integration:** Automated testing and deployment pipelines to ensure reliability and performance.
 - **🎹 Embodied Intelligence:** Integrates sensory inputs (microphones or keyboard devices) with AI planning logic (LLM and music models) to control actuators (physical or electronic pianos). This end-to-end process encapsulates the perception-planning-control loop of embodied AI, enabling a dynamic and responsive music creation experience.
@@ -16,12 +15,11 @@ Chat Piano leverages advanced AI models to interpret voice commands and convert 
 ## 🛠️ Technical Stack
 
 - **📦 Microservices:** Includes services:
-  - **📚 [knowledge-database-management-service](https://github.com/yhbcode000/knowledge-database-management-service):** Manages AI knowledge in a way that allows for human control and sophisticated data management.
+  - ~~**📚 [knowledge-database-management-service](https://github.com/yhbcode000/knowledge-database-management-service):** Manages AI knowledge in a way that allows for human control and sophisticated data management.~~
   - **🎵 [musecoco-text2midi-service](https://github.com/yhbcode000/musecoco-text2midi-service):** Refactors MuseCoco into a deployable service module, ensuring adaptability and detailed implementation abstraction.
-  - **💬 [llm-text2text-service](https://github.com/yhbcode000/llm-text2text-service):** Integrates third-party open-source LLM services for modular deployment and API interaction from leading models.
-  - **🤖 [multi-modal-ai-bot-template](https://github.com/yhbcode000/multi-modal-ai-bot-template):** Provides a template for multimodal AI interactions, integrating various AI workflows.
+  - ~~**💬 [llm-text2text-service](https://github.com/yhbcode000/llm-text2text-service):** Integrates third-party open-source LLM services for modular deployment and API interaction from leading models.~~
+  - ~~**🤖 [multi-modal-ai-bot-template](https://github.com/yhbcode000/multi-modal-ai-bot-template):** Provides a template for multimodal AI interactions, integrating various AI workflows.~~
 - **🐳 Docker & Kubernetes:** For containerization and orchestration to manage and scale the application seamlessly.
-- **🔧 GitHub:** Used for version control and hosting the project repository.
 
 ## ⚙️ Installation
 
