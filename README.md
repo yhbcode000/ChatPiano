@@ -45,8 +45,12 @@ python setup.py install
 cd ChatPiano
 
 # For now
-python main.py
+pip install -e .
 
+start-chatpiano
+```
+<!-- 
+```bash
 # Build the Docker container
 docker build -t chat-piano .
 
@@ -67,7 +71,7 @@ docker run -d --name chat-piano-instance TODO-TO-BE-ANNOUNCED
 
 # Initialize the Docker service (if necessary)
 docker service create --name chat-piano-service TODO-TO-BE-ANNOUNCED
-```
+``` -->
 
 ## 📖 Usage
 

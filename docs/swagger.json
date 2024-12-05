@@ -1,0 +1,198 @@
+{
+  "swagger": "2.0",
+  "basePath": "/",
+  "paths": {
+    "/api/execute/{function_name}": {
+      "parameters": [
+        {
+          "name": "function_name",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "404": {
+            "description": "Function not found"
+          }
+        },
+        "operationId": "execute_function",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Execute"
+            }
+          }
+        ],
+        "tags": [
+          "api"
+        ]
+      }
+    },
+    "/api/tool_definition/{tool_name}": {
+      "parameters": [
+        {
+          "name": "tool_name",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ToolDefinition"
+            }
+          }
+        },
+        "operationId": "get_tool_definition",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "api"
+        ]
+      }
+    },
+    "/api/tool_names_functions": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ToolNameFunction"
+              }
+            }
+          }
+        },
+        "summary": "Get all tool names, function names, and their short descriptions",
+        "operationId": "get_all_tool_names_functions",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask",
+            "description": "An optional fields mask"
+          }
+        ],
+        "tags": [
+          "api"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Chat Piano API",
+    "version": "1.0",
+    "description": "A simple API for Chat Piano"
+  },
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "api",
+      "description": "Chat Piano operations"
+    }
+  ],
+  "definitions": {
+    "ToolDefinition": {
+      "required": [
+        "description",
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The function name"
+        },
+        "description": {
+          "type": "string",
+          "description": "The function description"
+        },
+        "parameters": {
+          "$ref": "#/definitions/Parameters"
+        }
+      },
+      "type": "object"
+    },
+    "Parameters": {
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of parameters"
+        },
+        "properties": {
+          "type": "object",
+          "description": "The properties of the parameters"
+        },
+        "required": {
+          "type": "array",
+          "description": "The required parameters",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ToolNameFunction": {
+      "required": [
+        "name",
+        "short_description"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name"
+        },
+        "short_description": {
+          "type": "string",
+          "description": "The first 100 characters of the function description"
+        }
+      },
+      "type": "object"
+    },
+    "Execute": {
+      "required": [
+        "data"
+      ],
+      "properties": {
+        "data": {
+          "type": "object",
+          "description": "The data to pass to the function"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "responses": {
+    "ParseError": {
+      "description": "When a mask can't be parsed"
+    },
+    "MaskError": {
+      "description": "When any error occurs on mask"
+    }
+  }
+}

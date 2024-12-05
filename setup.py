@@ -40,7 +40,7 @@ setup(
     python_requires='>=3.10',
     entry_points={
         'console_scripts': [
-            'start-chatpiano=modules.some_module:main',  # Replace with the actual entry point for your application
+            'start-chatpiano=main:main',  # Replace with the actual entry point for your application
         ],
     },
 )
