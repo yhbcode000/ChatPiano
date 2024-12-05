@@ -1,5 +1,5 @@
 # 🎹 Chat Piano
-
+<!-- 
 Chat Piano leverages advanced AI models to interpret voice commands and convert them into MIDI files, facilitating a seamless interaction between users and digital music creation. This project integrates various microservices to manage data, improve functionality, and streamline the user experience.
 
 ## 🌟 Features
@@ -19,34 +19,19 @@ Chat Piano leverages advanced AI models to interpret voice commands and convert 
   - **🎵 [musecoco-text2midi-service](https://github.com/yhbcode000/musecoco-text2midi-service):** Refactors MuseCoco into a deployable service module, ensuring adaptability and detailed implementation abstraction.
   - ~~**💬 [llm-text2text-service](https://github.com/yhbcode000/llm-text2text-service):** Integrates third-party open-source LLM services for modular deployment and API interaction from leading models.~~
   - ~~**🤖 [multi-modal-ai-bot-template](https://github.com/yhbcode000/multi-modal-ai-bot-template):** Provides a template for multimodal AI interactions, integrating various AI workflows.~~
-- **🐳 Docker & Kubernetes:** For containerization and orchestration to manage and scale the application seamlessly.
+- **🐳 Docker & Kubernetes:** For containerization and orchestration to manage and scale the application seamlessly. 
 
 ## ⚙️ Installation
-
+-->
 To set up the Chat Piano project on your local machine, follow these steps:
 
 ```bash
 # Clone the repository recursively to include all submodules
-git clone --recursive git@github.com:yhbcode000/ChatPiano.git
-```
-
-> Use python. Suggest try on Linux system.
-
-```python
+git clone git@github.com:yhbcode000/ChatPiano.git
 cd ChatPiano
-
-python setup.py install
-```
-
-> Use docker build.
-
-```bash
-# Navigate to the project directory
-cd ChatPiano
-
-# For now
 pip install -e .
 
+# start the chatpiano tool server
 start-chatpiano
 ```
 <!-- 
@@ -72,7 +57,7 @@ docker run -d --name chat-piano-instance TODO-TO-BE-ANNOUNCED
 # Initialize the Docker service (if necessary)
 docker service create --name chat-piano-service TODO-TO-BE-ANNOUNCED
 ``` -->
-
+<!-- 
 ## 📖 Usage
 
 Start by sending voice commands to the system. The AI will process these commands and generate corresponding MIDI files. Detailed documentation on specific commands and customization will be provided in further updates (TODO-UPDATE-DOCUMENT).
@@ -94,4 +79,4 @@ This project is licensed under Apache License 2.0 - see the [LICENSE](LICENSE) f
 
 ## Helpful Link
 
-- https://www.onlineconverter.com/midi-to-mp3
+- https://www.onlineconverter.com/midi-to-mp3 -->
