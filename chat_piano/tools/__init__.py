@@ -5,13 +5,13 @@ FUNCTION_MAPPING = {
     "play_accompaniment_track_realtime_tempo": playAccompanimentTrackRealtimeTempo,
     "play_midi_on_piano": MidiPlayer.startPlaying,
     "generate_midi": generate_midi, 
-    "checkGenerateMidiStatus": check_generate_midi_status,
+    "check_generate_midi_status": check_generate_midi_status,
 }
 
 TOOLS_DEFINE = [
     {
         "name": "play_accompaniment_track_realtime_tempo",
-        "description": "Enter the phase to play the accompaniment track on the piano, attending and adapting to the human player's tempo.",
+        "description": "Accompany a human player by playing the accompaniment track on the piano, attending and adapting to the human player's tempo.",
         "parameters": {
             "type": "object",
             "properties": {
@@ -36,7 +36,7 @@ TOOLS_DEFINE = [
     },
     {
         "name": "generate_midi",
-        "description": "This tool converts structured musical instructions into a MIDI file. The input should include key musical elements such as time signature, tempo, key, instrumentation, pitch range, and emotional character. Based on these details, the tool generates a MIDI file that reflects the described musical piece.",
+        "description": "This tool uses MuseCoco (a deep NN model) to convert structured musical instructions into a MIDI file. The input should include key musical elements such as time signature, tempo, key, instrumentation, pitch range, and emotional character. Based on these details, the tool generates a MIDI file that reflects the described musical piece.",
         "parameters": {
             "type": "object",
             "properties": {
