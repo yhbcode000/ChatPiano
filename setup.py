@@ -19,6 +19,10 @@ setup(
         'requests>=2.26.0',
         'docker>=5.0.0',
         'PyYAML>=6.0',
+        'flask',
+        'flask_restx',
+        'flask_cors',
+        'IPython',
     ],
     extras_require={
         'dev': [
