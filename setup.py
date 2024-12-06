@@ -23,6 +23,7 @@ setup(
         'flask_restx',
         'flask_cors',
         'IPython',
+        'python-rtmidi', 
     ],
     extras_require={
         'dev': [
