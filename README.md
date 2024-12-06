@@ -34,6 +34,12 @@ pip install -e .
 # start the chatpiano tool server
 start-chatpiano
 ```
+
+Or with uv:  
+```bash
+uv sync
+uv run python -m chat_piano
+```
 <!-- 
 ```bash
 # Build the Docker container

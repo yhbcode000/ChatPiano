@@ -40,7 +40,10 @@ class TextToMidiClient:
         return save_path
     
 # Initialize the client with the base URL of your Flask server
-text2midi_client = TextToMidiClient(base_url="http://localhost:5000")
+text2midi_client = TextToMidiClient(
+    base_url="http://text2midi.api.aierlab.tech", 
+    # base_url="http://localhost:5000", 
+)
 
 
 # %%
@@ -56,7 +59,6 @@ def convert_text_to_midi(text_command):
         while True:
             status_response = text2midi_client.check_status(job_id)
             status = status_response['status']
-            # print(f"Job Status: {status}")
             if status == 'completed':
                 break
             elif status == 'failed':
@@ -101,27 +103,39 @@ def generate_midi(text_command):
                                          args=(text_command, result_queue))
     conversion_thread.start()
     thread_list.append(conversion_thread)
-    return "Generation start."
+    return {
+        "ok": True,
+        "instructions": "Success. MIDI generation process initiated. Wait for the process to complete.",
+    }
 
 def check_generate_midi_status():
     # Check if there's a MIDI conversion in progress
     if thread_list:
         latest_thread = thread_list[0]
         if latest_thread.is_alive():
-            return "Generation is ongoing."
+            return {
+                "status": "ongoing",
+                "message": "MIDI generation is in progress.",
+            }
         else:
             # If the MIDI conversion has finished, handle the result
-            if latest_thread and not latest_thread.is_alive():
-                thread_list.pop()
-                if not result_queue.empty():
-                    midi_result = result_queue.get()
-                    if midi_result:
-                        midi_file_path, meta_data = midi_result
-                        return "Finish generation."
-                    else:
-                        return "Generation failed."
+            thread_list.pop()
+            assert not result_queue.empty()
+            midi_result = result_queue.get_nowait()
+            if midi_result:
+                midi_file_path, meta_data = midi_result
+                return {
+                    "status": "completed",
+                    "message": "MIDI generation completed.",
+                    "midi_file_path": midi_file_path,
+                    "meta_data": meta_data,
+                }
+            else:
+                return {
+                    "status": "failed",
+                }
     else:
-        return "No ongoing generation process."
-    
-
-
+        return {
+            "status": "idle",
+            "message": "No MIDI generation process is currently running.",
+        }
