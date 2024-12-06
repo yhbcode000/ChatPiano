@@ -47,7 +47,12 @@ TOOLS_DEFINE = [
     {
         "name": "play_accompaniment_track_realtime_tempo",
         "description": "Enter the phase to play the accompaniment track on the piano, attending and adapting to the human player's tempo.",
-        "parameters": {}
+        "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "required": [],
+        }
     },
     {
         "name": "play_midi_on_piano",
