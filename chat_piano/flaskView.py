@@ -5,8 +5,6 @@ from .tools import FUNCTION_MAPPING, TOOLS_DEFINE, MidiPlayer
 import os
 import json
 
-midiPlayer = MidiPlayer()
-
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
@@ -94,7 +92,7 @@ class ExecuteFunction(Resource):
 api.add_namespace(ns)
 
 def main():
-    # MidiPlayer()    # Initialize the MidiPlayer # FIXME HOW TO RUN THIS MIDI PLAYER
+    midiPlayer = MidiPlayer()
     
     # Save the OpenAPI specification to docs/swagger.json
     with app.test_request_context():
