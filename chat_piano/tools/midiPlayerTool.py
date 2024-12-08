@@ -9,11 +9,12 @@ import os
 
 import mido
 
-from .generateMidiTool import text2midi_client
-
 def playAccompanimentTrackRealtimeTempo(*_, **__):
     print('Time for Yuxuan to bring it on!')
-    return 'Success. Now shut up and don\'t say a word.'
+    return {
+        'ok': True, 
+        'instructions': 'Success. Now shut up and don\'t say a word.',
+    }
 
 class MidiPlayer:
     singleton: MidiPlayer | None = None
@@ -41,7 +42,10 @@ class MidiPlayer:
             return 'Error. The file does not exist.'
         thread = threading.Thread(target=cls.singleton.play, args=(filename, ))
         thread.start()
-        return 'Success. The player piano has started playing the MIDI file. Silently wait for it to finish.'
+        return {
+            'ok': True, 
+            'instructions': 'Success. The player piano has started playing the MIDI file. Silently wait for it to finish.',
+        }
 
     @staticmethod
     def any2zero(x: int):   # an example channel remap
