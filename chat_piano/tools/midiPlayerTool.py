@@ -20,8 +20,8 @@ class MidiPlayer:
     singleton: MidiPlayer | None = None
 
     def __new__(cls) -> MidiPlayer:
-        if cls.singleton is None:
-            cls.singleton = super().__new__(cls)
+        assert cls.singleton is None
+        cls.singleton = super().__new__(cls)
         return cls.singleton
     
     def __init__(self):
@@ -32,16 +32,20 @@ class MidiPlayer:
         selected = outputs[int(input('> '))]
         print(f'{selected = }')
         self.output_name = selected
+        self.should_stop = False
+        self.thread: threading.Thread | None = None
     
     @classmethod
     def startPlaying(cls, filename: str):
         if cls.singleton is None:
             raise ValueError('MidiPlayer is not initialized. You need to call MidiPlayer() at the start of everything.')
+        self = cls.singleton
+        assert self.thread is None
         if not os.path.isfile(filename):
             print('Error. The file does not exist.')
             return 'Error. The file does not exist.'
-        thread = threading.Thread(target=cls.singleton.play, args=(filename, ))
-        thread.start()
+        self.thread = threading.Thread(target=self.play, args=(filename, ))
+        self.thread.start()
         return {
             'ok': True, 
             'instructions': 'Success. The player piano has started playing the MIDI file. Silently wait for it to finish.',
@@ -74,6 +78,8 @@ class MidiPlayer:
                     print('playing...')
                 try:
                     for msg in mid.play(meta_messages = not discard_meta):
+                        if self.should_stop:
+                            break
                         if verbose:
                             print(msg)
                         try:
@@ -93,10 +99,17 @@ class MidiPlayer:
                     if verbose:
                         print('Stop. ')
                 finally:
+                    print('Sending midi panic')
                     port.panic()
                     # in case the MIDI device did not implement panic
                     for note in down_keys:
                         port.send(mido.Message('note_off', note=note))
         if verbose:
             print('ok')
-
+    
+    def close(self):
+        self.should_stop = True
+        print(f'{self.thread = }')
+        assert self.thread is not None
+        self.thread.join()
+        self.thread = None

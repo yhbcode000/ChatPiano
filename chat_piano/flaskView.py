@@ -5,6 +5,8 @@ from .tools import FUNCTION_MAPPING, TOOLS_DEFINE, MidiPlayer
 import os
 import json
 
+midiPlayer = MidiPlayer()
+
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
@@ -101,7 +103,10 @@ def main():
         with open('docs/swagger.json', 'w') as f:
             json.dump(api.__schema__, f, indent=2)
 
-    app.run(debug=True, host='localhost', port=5001)
+    try:
+        app.run(debug=True, use_reloader=False, host='localhost', port=5001)
+    finally:
+        midiPlayer.close()
 
 if __name__ == "__main__":
     main()
