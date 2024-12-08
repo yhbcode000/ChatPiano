@@ -62,7 +62,7 @@ class MidiPlayer:
     def play(
         self, 
         filename: str, 
-        channel_remap: tp.Callable[[int], int | None] = identity,
+        channel_remap: tp.Callable[[int], int | None] = any2zero,
         scale_velocity: float = 1.0, 
         discard_meta: bool = True, 
         verbose: bool = True, 
@@ -80,8 +80,6 @@ class MidiPlayer:
                     for msg in mid.play(meta_messages = not discard_meta):
                         if self.should_stop:
                             break
-                        if verbose:
-                            print(msg)
                         try:
                             msg.velocity = round(msg.velocity * scale_velocity)
                             new_channel = channel_remap(msg.channel)
@@ -90,6 +88,8 @@ class MidiPlayer:
                             msg.channel = new_channel
                         except AttributeError:
                             pass    # allow control_change
+                        if verbose:
+                            print(msg)
                         port.send(msg)
                         if msg.type == 'note_on' and msg.velocity != 0:
                             down_keys.add(msg.note)
