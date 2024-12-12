@@ -63,7 +63,7 @@ def convert_text_to_midi(text_command):
                 break
             elif status == 'failed':
                 print("Job failed.")
-                return None
+                return None, None
             time.sleep(10)  # Wait for 2 seconds before checking again
 
         # Step 3: Retrieve the result (metadata)
@@ -80,10 +80,10 @@ def convert_text_to_midi(text_command):
 
     except requests.HTTPError as http_err:
         print(f"HTTP error occurred: {http_err.response.json()}")
-        return None
+        return None, None
     except Exception as err:
         print(f"An error occurred: {err}")
-        return None
+        return None, None
 
 # %%
 import threading
@@ -133,6 +133,7 @@ def check_generate_midi_status():
             else:
                 return {
                     "status": "failed",
+                    "message": "MIDI generation is run in to unexpected error.",
                 }
     else:
         return {
