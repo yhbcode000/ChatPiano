@@ -1,9 +1,12 @@
 import pretty_midi
 
 F_IN = 'guojiao_3track.mid'
-F_OUT = 'guojiao_3track_4bars.mid'
 
-CUTOFF = 11.0
+how_many_bars = int(input('how many bars? > '))
+assert how_many_bars < 12 # longer, and the timing may be wrong. pleaes remeasure
+
+CUTOFF = 11.0 / 4 * how_many_bars
+F_OUT = f'guojiao_3track_{how_many_bars}bars.mid'
 
 def main():
     midi_data = pretty_midi.PrettyMIDI(F_IN)
@@ -12,7 +15,7 @@ def main():
         new_notes = []
         for note in ins.notes:
             note: pretty_midi.Note
-            if note.start < 11:
+            if note.start < CUTOFF:
                 new_notes.append(note)
                 note.end = min(note.end, CUTOFF)
             else:
@@ -21,7 +24,7 @@ def main():
         new_control_changes = []
         for cc in ins.control_changes:
             cc: pretty_midi.ControlChange
-            if cc.time < 11:
+            if cc.time < CUTOFF:
                 new_control_changes.append(cc)
             else:
                 break
