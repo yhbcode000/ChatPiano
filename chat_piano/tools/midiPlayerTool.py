@@ -104,12 +104,13 @@ class MidiPlayer:
                     # in case the MIDI device did not implement panic
                     for note in down_keys:
                         port.send(mido.Message('note_off', note=note))
+                    self.thread = None
         if verbose:
             print('ok')
     
     def close(self):
         self.should_stop = True
         print(f'{self.thread = }')
-        assert self.thread is not None
-        self.thread.join()
-        self.thread = None
+        if self.thread is not None:
+            self.thread.join()
+            self.thread = None
