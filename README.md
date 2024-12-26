@@ -1,6 +1,6 @@
-# 🎹 Chat Piano Tool API Server
+# 🎹 Chat Piano Tool Server
 
-This repository is dedicated solely to hosting the Chat Piano tool server, providing an efficient and scalable solution for managing and expanding tool-based services. Chat Piano leverages advanced AI models to interpret voice commands and convert them into MIDI files, facilitating seamless interactions between users and digital music creation platforms.
+This repository hosts the Chat Piano API server, providing an efficient and scalable solution for managing and expanding tool-based services. Chat Piano leverages advanced AI models to interpret voice commands and convert them into MIDI files, facilitating seamless interactions between users and digital music creation platforms.
 
 ## 🌟 Features
 
@@ -155,3 +155,4 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 - **Community:** Gratitude to all developers, musicians, and community members who have enhanced this project.
 - **Open-Source Tools:** Special thanks to the developers and communities supporting the open-source tools and libraries utilized in this project.
 
+---
