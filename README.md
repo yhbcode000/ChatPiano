@@ -19,6 +19,7 @@ This repository hosts the Chat Piano API server, providing an efficient and scal
 
 ### Choices
 
+<blockquote>
 <details>
 <summary>Local Installation - Set up directly on your machine</summary>
 <div>
@@ -39,7 +40,9 @@ cd ChatPiano</code></pre>
 </ol>
 </div>
 </details>
+</blockquote>
 
+<blockquote>
 <details>
 <summary>Using uv - Enhanced project synchronization and management</summary>
 <div>
@@ -56,7 +59,9 @@ cd ChatPiano</code></pre>
 </ol>
 </div>
 </details>
+</blockquote>
 
+<blockquote>
 <details>
 <summary>Docker Setup - Containerized deployment for isolated environments</summary>
 <div>
@@ -74,7 +79,9 @@ cd ChatPiano</code></pre>
 <p><strong>Note:</strong> The Docker image includes all dependencies, ensuring a consistent and isolated environment. For production use, consider pulling the pre-built image to save time.</p>
 </div>
 </details>
+</blockquote>
 
+<blockquote>
 <details>
 <summary>Pull Pre-Built Docker Image - Quick setup using a pre-built image</summary>
 <div>
@@ -94,6 +101,7 @@ cd ChatPiano</code></pre>
 </ol>
 </div>
 </details>
+</blockquote>
 
 ## 📖 Usage
 
@@ -117,6 +125,7 @@ We welcome contributions from the community. Here are some ways you can contribu
   <li>Share feedback and ideas for improvement.</li>
 </ul>
 
+<blockquote>
 <details>
 <summary>Adding Tools to the Repository - Extend the functionality with new tools</summary>
 <div>
@@ -148,6 +157,7 @@ We welcome contributions from the community. Here are some ways you can contribu
 </ol>
 </div>
 </details>
+</blockquote>
 
 For further details, contact the project author or refer to the contribution guidelines.
 
