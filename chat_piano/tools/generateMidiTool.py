@@ -8,6 +8,16 @@ class TextToMidiClient:
     def __init__(self, base_url):
         self.base_url = base_url.rstrip('/')
 
+        # test availtability
+        # FIXME: make Musecoco server support shakehand
+        try:
+            self.check_status('dummy_id')
+        except requests.HTTPError:
+            print('Backend is online')
+        except:
+            print('Backend is offline')
+            raise
+
     def submit_text(self, text):
         url = f"{self.base_url}/submit-text"
         headers = {'Content-Type': 'application/json'}
@@ -43,6 +53,7 @@ class TextToMidiClient:
 text2midi_client = TextToMidiClient(
     base_url="http://text2midi.api.aierlab.tech", 
     # base_url="http://localhost:5000", 
+    # base_url="http://localhost:2333", 
 )
 
 
@@ -122,7 +133,7 @@ def check_generate_midi_status():
             thread_list.pop()
             assert not result_queue.empty()
             midi_result = result_queue.get_nowait()
-            if midi_result:
+            if midi_result and midi_result[0]:
                 midi_file_path, meta_data = midi_result
                 return {
                     "status": "completed",
