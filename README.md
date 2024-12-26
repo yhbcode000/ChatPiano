@@ -19,9 +19,10 @@ This repository hosts the Chat Piano API server, providing an efficient and scal
 
 ### Choices
 
-<blockquote>
 <details>
 <summary>Local Installation - Set up directly on your machine</summary>
+<blockquote>
+
 <div>
 <p>This section provides detailed steps to install the project locally. Ideal for developers or testers who wish to modify and run the tool on their machines.</p>
 
@@ -39,12 +40,14 @@ cd ChatPiano</code></pre>
   </li>
 </ol>
 </div>
-</details>
 </blockquote>
 
-<blockquote>
+</details>
+
 <details>
 <summary>Using uv - Enhanced project synchronization and management</summary>
+  <blockquote>
+
 <div>
 <p>The `uv` tool provides a streamlined way to manage synchronization and ensure optimal configurations for running the project.</p>
 
@@ -58,12 +61,14 @@ cd ChatPiano</code></pre>
   </li>
 </ol>
 </div>
-</details>
 </blockquote>
 
-<blockquote>
+</details>
+
 <details>
 <summary>Docker Setup - Containerized deployment for isolated environments</summary>
+  <blockquote>
+
 <div>
 <p>Use Docker to encapsulate the project and its dependencies for an isolated and consistent environment. This is the recommended approach for production use.</p>
 
@@ -78,12 +83,14 @@ cd ChatPiano</code></pre>
 
 <p><strong>Note:</strong> The Docker image includes all dependencies, ensuring a consistent and isolated environment. For production use, consider pulling the pre-built image to save time.</p>
 </div>
-</details>
 </blockquote>
 
-<blockquote>
+</details>
+
 <details>
 <summary>Pull Pre-Built Docker Image - Quick setup using a pre-built image</summary>
+  <blockquote>
+
 <div>
 <p>For quicker setup and deployment, use a pre-built Docker image hosted on Docker Hub.</p>
 
@@ -100,8 +107,9 @@ cd ChatPiano</code></pre>
   </li>
 </ol>
 </div>
-</details>
 </blockquote>
+
+</details>
 
 ## 📖 Usage
 
@@ -125,9 +133,10 @@ We welcome contributions from the community. Here are some ways you can contribu
   <li>Share feedback and ideas for improvement.</li>
 </ul>
 
-<blockquote>
 <details>
 <summary>Adding Tools to the Repository - Extend the functionality with new tools</summary>
+  <blockquote>
+
 <div>
 <p>To add a new tool to the Chat Piano system, follow these steps:</p>
 
@@ -156,8 +165,9 @@ We welcome contributions from the community. Here are some ways you can contribu
   </li>
 </ol>
 </div>
-</details>
 </blockquote>
+
+</details>
 
 For further details, contact the project author or refer to the contribution guidelines.
 
